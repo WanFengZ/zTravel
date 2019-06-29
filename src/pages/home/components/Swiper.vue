@@ -5,7 +5,7 @@
       <swiper-slide v-for="item of swiperList" :key="item.id  ">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
-      <div class="swiper-pagination bottom-5"  slot="pagination"></div>
+      <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
     background-color #ccc
     .swiper-img
       width 100%
-    .bottom-5 {
-      bottom 5px
+    .swiper-pagination {
+      bottom 4px
     }
 </style>
