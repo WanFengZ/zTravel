@@ -7,84 +7,20 @@
           <div class="button-wrapper">
             <div class="button">深圳</div>
           </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
         </div>
       </div>
       <div class="area border-topbottom">
         <div class="title">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">深圳</div>
+          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area border-topbottom">
-        <div class="title">A</div>
+      <div class="area border-topbottom" v-for="(item,key) of cities" :key="key">
+        <div class="title">{{key}}</div>
         <ul class="item-list">
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-        </ul>
-      </div>
-
-      <div class="area border-topbottom">
-        <div class="title">A</div>
-        <ul class="item-list">
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-        </ul>
-      </div>
-      <div class="area border-topbottom">
-        <div class="title">A</div>
-        <ul class="item-list">
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-          <li class="item border-bottom">阿拉尔</li>
-        </ul>
-      </div>
-      <div class="area border-topbottom">
-        <div class="title">A</div>
-        <ul class="item-list">
-          <li class="item border-bottom">阿拉尔</li>
+          <li class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</li>
           <li class="item border-bottom">阿拉尔</li>
           <li class="item border-bottom">阿拉尔</li>
           <li class="item border-bottom">阿拉尔</li>
@@ -100,6 +36,10 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Object,
+    hotCities: Array
+  },
   mounted () {
     let scroll = new BScroll(this.$refs.wrapper)
     scroll.options.scrollX = false
@@ -108,7 +48,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import "~@styles/varibles.styl"
   .border-topbottom
     &:before
       border-color #ccc
@@ -141,7 +80,7 @@ export default {
           margin .1rem
           text-align center
           line-height .5rem
-          border .02rem solid $bgColor
+          border .02rem solid #ccc
           border-radius .1rem
     .item-list
       display block
