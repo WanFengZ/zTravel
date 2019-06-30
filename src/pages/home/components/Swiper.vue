@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
+    <swiper v-if="showSwiper" :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id  ">
         <img class="swiper-img" :src="item.imgUrl" alt="">
@@ -13,6 +13,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       notNextTick: true,
@@ -20,17 +23,12 @@ export default {
         autoplay: 3000,
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [
-        {
-          id: '0001',
-          imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/5e02c14d35097f40d656f455837b63eb.jpg_750x200_adebb937.jpg'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/9f581f130d65e97c01301661e1e4116f.jpg_750x200_e5b996c3.jpg'
-        }
-      ]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length > 0
     }
   }
 }
