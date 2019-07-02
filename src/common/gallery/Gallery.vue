@@ -55,6 +55,7 @@ export default {
     top 0
     bottom 0
     background-color #000
+    z-index 4
     .wrapper
       width 100%
       .swiper-img

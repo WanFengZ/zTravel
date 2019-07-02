@@ -42,7 +42,7 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
   },
   deactivated () {
-    window.removeEventListener('scroll',this.handleScroll)
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -74,6 +74,7 @@ export default {
     font-size .32rem
     color #fff
     background-color $bgColor
+    z-index 2
     .header-back
       width .64rem
       font-size .4rem
