@@ -21,6 +21,7 @@ export default {
       notNextTick: true,
       swiperOption: {
         autoplay: 3000,
+        autoplayDisableOnInteraction: false,
         pagination: '.swiper-pagination',
         loop: true
       }

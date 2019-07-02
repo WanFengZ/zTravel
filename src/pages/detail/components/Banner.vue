@@ -8,16 +8,20 @@
         39
       </div>
     </div>
-    <common-gallery :imgs="this.galleryImgs" v-show="showGallery" @cancel="handleCancel"></common-gallery>
+    <common-fade>
+      <common-gallery slot="header" :imgs="this.galleryImgs" v-show="showGallery" @cancel="handleCancel"></common-gallery>
+    </common-fade>
   </div>
 </template>
 
 <script>
 import CommonGallery from '@common/gallery/Gallery'
+import CommonFade from '@common/fade/Fade'
 export default {
   name: 'DetailBanner',
   components: {
-    CommonGallery
+    CommonGallery,
+    CommonFade
   },
   props: {
     sightName: String,
