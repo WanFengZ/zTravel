@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="banner" @click="handleEnter">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1906/93/93db3b8f65fb15b4a3.water.jpg_600x330_9fd83df8.jpg" alt="">
-      <div class="banner-title">深圳欢乐谷(AAAAA景区)</div>
+      <img class="banner-img" :src="this.bannerImg" alt="">
+      <div class="banner-title">{{this.sightName}}</div>
       <div class="banner-number">
         <span class="iconfont">&#xe889;</span>
         39
       </div>
     </div>
-    <common-gallery :imgs="imgs" v-show="showGallery" @cancel="handleCancel"></common-gallery>
+    <common-gallery :imgs="this.galleryImgs" v-show="showGallery" @cancel="handleCancel"></common-gallery>
   </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
   name: 'DetailBanner',
   components: {
     CommonGallery
+  },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    galleryImgs: Array
   },
   data () {
     return {
