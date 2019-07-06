@@ -4,9 +4,9 @@
                      :key="item"
                      :ref="item"
                      @click="handleLetterClick"
-                     @touchstart="handleTouchStart"
-                     @touchmove="handleTouchMove"
-                     @touchend="handleTouchEnd">
+                     @touchstart.prevent="handleTouchStart"
+                     @touchmove.prevent="handleTouchMove"
+                     @touchend.prevent="handleTouchEnd">
       {{item}}
     </li>
   </ul>
@@ -72,7 +72,7 @@ export default {
     right 0
     top 1.60rem
     bottom 0
-    width .4rem
+    width .8rem
     .item
       line-height .4rem
       text-align center

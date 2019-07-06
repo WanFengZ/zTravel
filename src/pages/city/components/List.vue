@@ -56,7 +56,7 @@ export default {
       this.$router.push('/')
     }
   },
-  mounted () {
+  activated () {
     this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
